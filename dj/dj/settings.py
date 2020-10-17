@@ -31,6 +31,7 @@ ALLOWED_HOSTS = ['192.168.1.6', '127.0.0.1']
 # Application definition
 
 INSTALLED_APPS = [
+    'rest_framework',
     'bk.apps.BkConfig',
     'django.contrib.admin',
     'django.contrib.auth',
