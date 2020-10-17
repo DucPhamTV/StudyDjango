@@ -40,7 +40,7 @@ class Item(models.Model):
 
 
 class Image(models.Model):
-    item = models.ForeignKey(Item, on_delete=models.CASCADE) 
+    item = models.ForeignKey(Item, related_name='images', on_delete=models.CASCADE) 
     image = models.ImageField(upload_to=image_path)
     name = models.CharField(max_length=200)
 
@@ -51,7 +51,7 @@ class Image(models.Model):
 class Comment(models.Model):
     date = models.DateTimeField('date published')
     content = models.TextField()
-    item = models.ForeignKey(Item, on_delete=models.CASCADE)
+    item = models.ForeignKey(Item, related_name='comments', on_delete=models.CASCADE)
 
     def __str__(self):
         return self.content
