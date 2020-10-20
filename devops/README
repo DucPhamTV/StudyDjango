@@ -28,3 +28,10 @@ sudo dpkg -i docker-compose_1.25.0-1_all.deb
 # Fix previous failed by this
 sudo apt-get install -f
 ```
+
+#### Next actions. dockerize the django apps
+
+Refer to:
+
+- https://github.com/nicholaskajoh/dockerized-django
+- https://docs.docker.com/compose/django/
