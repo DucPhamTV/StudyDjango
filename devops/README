@@ -18,3 +18,13 @@ sudo usermod -aG docker $USER
 newgrp docker
 docker run hello-world
 ```
+
+#### Install docker-compose for aarch64
+After google a while. I downloaded existed binary docker-compose although it's quite out of date. https://launchpad.net/ubuntu/focal/arm64/docker-compose/1.25.0-1 . Current version is already 1.27.4
+
+```
+# This will be failed due to lack of dependencies
+sudo dpkg -i docker-compose_1.25.0-1_all.deb
+# Fix previous failed by this
+sudo apt-get install -f
+```
