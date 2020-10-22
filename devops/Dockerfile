@@ -11,11 +11,11 @@ RUN apk --update add \
     jpeg-dev \
     zlib-dev
 
+ENV PYTHONUNBUFFERED 1
 RUN mkdir /www
 WORKDIR /www
 COPY requirements.txt /www/
 RUN pip install -r requirements.txt
 
-ENV PYTHONUNBUFFERED 1
-
 COPY dj /www/
+
