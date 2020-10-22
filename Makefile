@@ -17,3 +17,8 @@ clean:
 .PHONY: test
 test: $(VIRTUALENV)
 	$(TESTRUNNER) $(TESTRUNNERFLAGS)
+
+.PHONY: build
+build:
+	cp -r dj devops/
+	cp requirements.txt devops/
