@@ -12,10 +12,8 @@ RUN apk --update add \
     zlib-dev
 
 ENV PYTHONUNBUFFERED 1
+ENV PYTHONDONTWRITEBYTECODE 1
 RUN mkdir /www
 WORKDIR /www
 COPY requirements.txt /www/
 RUN pip install -r requirements.txt
-
-COPY dj /www/
-
