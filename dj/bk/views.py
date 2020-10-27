@@ -2,13 +2,23 @@ from django.shortcuts import render
 from django.views.generic import ListView, View
 
 from rest_framework import viewsets, permissions
-from .serializer import UserSerializer, ItemSerializer, CommentSerializer
+from .serializer import (
+    UserSerializer,
+    ItemSerializer,
+    CommentSerializer,
+    ImageSerializer,
+)
 
 # Create your views here.
-from .models import Item, Comment
+from .models import Item, Comment, Image
 from django.contrib.auth.models import User
 
 from .permissions import IsOwnerOrReadOnly
+
+
+class ImageViewSet(viewsets.ModelViewSet):
+    queryset = Image.objects.all()
+    serializer_class = ImageSerializer
 
 
 class UserViewSet(viewsets.ModelViewSet):
@@ -27,6 +37,7 @@ class ItemViewSet(viewsets.ModelViewSet):
 
     def perform_create(self, serializer):
         serializer.save(owner=self.request.user)
+
 
 class CommentViewSet(viewsets.ModelViewSet):
     queryset = Comment.objects.all()

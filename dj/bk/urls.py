@@ -7,6 +7,7 @@ router = DefaultRouter()
 router.register(r'api/users', views.UserViewSet, basename='user')
 router.register(r'api/items', views.ItemViewSet, basename='item')
 router.register(r'api/comment', views.CommentViewSet, basename='comment')
+router.register(r'api/image', views.ImageViewSet, basename='image')
 
 urlpatterns = [
     path('', views.IndexView.as_view(), name='index'),
