@@ -23,6 +23,7 @@ class Item(models.Model):
         ("HARDEST", "Hardest"),
     ]
     name = models.CharField(max_length=200)
+    owner = models.ForeignKey('auth.User', related_name='items', on_delete=models.CASCADE)
     pub_date = models.DateTimeField('date published')
     title = models.TextField(max_length=200, default="")
     paragraph = models.TextField()

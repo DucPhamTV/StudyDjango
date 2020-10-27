@@ -1,12 +1,14 @@
 from django.shortcuts import render
 from django.views.generic import ListView, View
 
-from rest_framework import viewsets, generics
+from rest_framework import viewsets, permissions
 from .serializer import UserSerializer, ItemSerializer, CommentSerializer
 
 # Create your views here.
 from .models import Item, Comment
 from django.contrib.auth.models import User
+
+from .permissions import IsOwnerOrReadOnly
 
 
 class UserViewSet(viewsets.ModelViewSet):
@@ -20,6 +22,11 @@ class ItemViewSet(viewsets.ModelViewSet):
     """
     queryset = Item.objects.all()
     serializer_class = ItemSerializer
+    permission_classes = [permissions.IsAuthenticatedOrReadOnly,
+                          IsOwnerOrReadOnly]
+
+    def perform_create(self, serializer):
+        serializer.save(owner=self.request.user)
 
 class CommentViewSet(viewsets.ModelViewSet):
     queryset = Comment.objects.all()
