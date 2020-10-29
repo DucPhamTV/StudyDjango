@@ -18,9 +18,9 @@
       <div class="row">
         {% for item in items %}
           <div class="col-lg-4 col-md-4 col-sm-12">
-            <h3 class="feature-title">{{item.name}}</h3>
-            <img src="media/{{item.image}}" class="img-fluid">
-            <p>{{item.paragraph}}
+            <a href="{% url 'detail' item["it"].id %}"><h3 class="feature-title">{{item["it"].name}}</h3></a>
+            <img src="{{item['im']}}" class="img-fluid">
+            <p>{{item['it'].title}} -- {{item['it'].price}} VND</p>
           </div>
         {% endfor %}
       </div>

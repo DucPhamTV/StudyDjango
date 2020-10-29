@@ -11,6 +11,7 @@ router.register(r'api/image', views.ImageViewSet, basename='image')
 
 urlpatterns = [
     path('', views.IndexView.as_view(), name='index'),
+    path('detail/<int:pk>', views.ItemDetailView.as_view(), name='detail'),
     #path('api/', views.ItemViewSet.as_view(), name='item'),
     path(r'api2/', include(router.urls)),
     #path('<name>', views.ItemView.as_view(), name='item'),
