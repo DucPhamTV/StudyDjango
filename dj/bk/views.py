@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 from django.views.generic import ListView, View, DetailView
 
 from rest_framework import viewsets, permissions
@@ -62,3 +62,10 @@ class ItemDetailView(DetailView):
     context_object_name = 'item'
     model = Item
 
+    def get_object(self):
+        item = get_object_or_404(Item, pk=self.kwargs['pk'])
+        images = item.images.all()
+        return {
+            'it': item,
+            'im': images,
+        }
