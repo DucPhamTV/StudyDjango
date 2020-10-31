@@ -1,12 +1,6 @@
 from django.db import models
 
 
-def image_path(obj, filename):
-    # file will be uploaded to 
-    # MEDIA_ROOT/imgs/<item-name>/<filename>
-    return 'imgs/{0}/{1}'.format(obj.name, filename)
-
-
 # Create your models here.
 class Category(models.Model):
     category = models.CharField(max_length=100, primary_key=True)
@@ -49,8 +43,10 @@ class Image(models.Model):
         related_name='images',
         on_delete=models.CASCADE,
     )
-    image = models.ImageField(upload_to=image_path)
+    image = models.URLField(max_length=200)
     name = models.CharField(max_length=200)
+    pub_date = models.DateTimeField('date published')
+    avatar = models.BooleanField(null=True)
 
     def __str__(self):
         return self.name
@@ -62,4 +58,4 @@ class Comment(models.Model):
     date = models.DateTimeField('date published')
     content = models.TextField()
     def __str__(self):
-        return self.content
+        return self.content[:30]

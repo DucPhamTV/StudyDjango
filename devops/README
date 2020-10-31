@@ -40,7 +40,7 @@ Refer to:
 
 - Edit .env_dev_sample file
 - Install docker and docker-compose (skip if already had)
-- make build (to cpoy source code to devops/)
+- make build (to copy source code to devops/)
 - docker-compose build and docker-compose up
 - docker-compose restart web (since the first launch, web always faster than db, db has to init its database, so web will complain that can't connect to db. restart web will help)
 - docker-compose exec web python manage.py makemigrations bk (prepare to migrate, if user is asked, just give None, since no user created yet and no item as well).

@@ -1,0 +1,15 @@
+{% extends "bk/base.html" %}
+{% block content %}
+    <div class="container features">
+      <div class="row">
+        <div class="col-lg-4 col-md-4 col-sm-12">
+          <a href="{% url 'detail' item.it.id %}"><h3 class="feature-title">{{item.it.name}}</h3></a>
+          {% for img in item.im %}
+          <img src="{{img.image}}" class="img-fluid">
+          {% endfor %}
+          <p>{{item.it.title}} -- {{item.it.price}} VND</p>
+        </div>
+      </div>
+    </div>
+
+{% endblock content%}
