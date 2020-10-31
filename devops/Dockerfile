@@ -6,7 +6,7 @@ RUN apk --update add \
     gcc \
     python3-dev \
     musl-dev \
-    libpq \
+    libpq
 
 ENV PYTHONUNBUFFERED 1
 ENV PYTHONDONTWRITEBYTECODE 1
