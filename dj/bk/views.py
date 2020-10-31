@@ -52,7 +52,7 @@ class IndexView(ListView):
     def get_queryset(self):
         result = []
         for item in Item.objects.all():
-            result.append({'it': item, 'im': item.images.all()[0].image.url})
+            result.append({'it': item, 'im': item.images.all()[0].image})
 
         return result
 
