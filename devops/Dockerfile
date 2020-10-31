@@ -7,9 +7,6 @@ RUN apk --update add \
     python3-dev \
     musl-dev \
     libpq \
-    # pillow dependencies
-    jpeg-dev \
-    zlib-dev
 
 ENV PYTHONUNBUFFERED 1
 ENV PYTHONDONTWRITEBYTECODE 1
