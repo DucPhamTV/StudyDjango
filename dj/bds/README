@@ -1,0 +1,5 @@
+The backend API for Real Estate products
+
+(aka Bat Dong San)
+
+bds backend is a pure REST API, so it doesn't have template or admin site
